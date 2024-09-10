@@ -3,11 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Navbar from "./components/Navbar";
 import reportWebVitals from "./reportWebVitals";
+import Phonebar from "./components/Phone-Navbar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Navbar />
+    <Phonebar />
   </React.StrictMode>
 );
 
