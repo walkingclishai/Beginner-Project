@@ -30,8 +30,8 @@ function Phonebar() {
         <input type="text" placeholder=" search.."></input>
       </div>
 
-      <button onClick={toggleMenu}>☰</button>
-      <ul id="menu" className={visible ? "show" : ""}>
+      <button onClick={toggleMenu}>{visible ? "X" : "☰"} </button>
+      <ul id="phone-menu" className={visible ? "show" : ""}>
         <li>
           <a href="#">Dashboard</a>
         </li>

@@ -8,7 +8,7 @@ import Phonebar from "./components/Phone-Navbar";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Phonebar />
+    {window.innerWidth < 600 ? <Phonebar /> : <Navbar />}
   </React.StrictMode>
 );
 
