@@ -1,7 +1,7 @@
 function Navbar() {
   return (
     <nav id="nav-bar">
-      <img alt="logo" height="100px" width="100px" src="logo.png" />
+      <img alt="logo" height="90px" width="90px" src="logo.png" />
       <ul>
         <li>
           <svg
