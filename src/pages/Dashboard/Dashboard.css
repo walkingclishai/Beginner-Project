@@ -61,7 +61,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    height: 400px;
+    height: 500px;
     width: 100%;
     background-color: #afdcee;
     z-index: 1;
@@ -75,7 +75,7 @@
     justify-content: space-between;
     align-items: center;
     width: 70%;
-    height: 85%;
+    height: 95%;
 
 }
 
@@ -87,7 +87,8 @@
 
 #slider-container{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
   
 }
@@ -97,22 +98,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    margin-top: -5rem;
+    
     
 }
 
-.picture svg{
 
+.picture svg{
+    margin-top: -3rem;
     height: 100%;
-    width: 400px;
+    width: 600px;
     padding: 0;
 }
 
-#info-container h2{
-    margin-bottom: -2.5rem;
-    margin-top: 6rem;
-}
 
+#info-container h2{
+    margin: 0;
+}
 
 #info-container a{
     border: 2px solid black;
