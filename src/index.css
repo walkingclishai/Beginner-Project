@@ -4,6 +4,11 @@
     font-size: Tahoma;
   }
 
+  body{
+    
+    margin: 60px 0 0 0;
+  }
+
 
   
   #nav-bar{
@@ -16,6 +21,7 @@
     top: 0;
     left: 0;
     background-color: #c1d4f5;
+    z-index: 1000;
   }
   
   #nav-bar img {
@@ -178,8 +184,9 @@
   }
 
   #phone-menu li{
-    padding: 4px;
+    padding: 6px;
     width: 100%;
+    border-bottom: 1px solid #3098c546;
     
   }
 
@@ -210,3 +217,10 @@
     background-color: #c1d4f5;
   }
   
+/* Media Query */
+
+@media screen and (min-width: 1368px) {
+    body{
+      margin: 100px 0 0 0;
+    }
+}
