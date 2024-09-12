@@ -1,4 +1,23 @@
 function Navbar() {
+  const units = [
+    {
+      name: "Unit 1",
+      link: "/unit1",
+    },
+    {
+      name: "Unit 2",
+      link: "/unit2",
+    },
+    {
+      name: "Unit 3",
+      link: "/unit3",
+    },
+    {
+      name: "Unit 4",
+      link: "/unit4",
+    },
+  ];
+
   return (
     <nav id="nav-bar">
       <img alt="logo" height="90px" width="90px" src="logo.png" />
@@ -81,15 +100,11 @@ function Navbar() {
           </a>
           {/* start of the dropdown menu */}
           <ul id="dropdown-units">
-            <li>
-              <a href="#">Unit 1</a>
-            </li>
-            <li>
-              <a href="#">Unit 2</a>
-            </li>
-            <li>
-              <a href="#">Unit 3</a>
-            </li>
+            {units.map((item) => (
+              <li>
+                <a href={item.link}>{item.name}</a>
+              </li>
+            ))}
           </ul>
         </li>
 
