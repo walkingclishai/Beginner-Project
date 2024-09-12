@@ -4,12 +4,75 @@
     align-items: center;
     justify-content: center;
 }
+ 
 
-#container .page-svg{
+#first-section{
+width: 100%;
+
+}
+
+
+.one{
+    margin-top: -13rem;
+}
+
+.two{
     margin-top: -12rem;
+  
+}
+
+#inner-container{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    position: sticky;
+    background-color: #afdcee;
+    margin-top: -1.5rem;
+
+    
+}
+#small-slider{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+#circles{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
     
 }
 
+.title-holder{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.title-holder h1{
+    padding: 0;
+    margin: 0;
+}
+
+
+
+#circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.filled{
+    background-color: #fff;
+    border-radius: 30px !important;
+    width: 16px !important;
+    height: 8px !important;
+}
 
 #stars{
     width: 100%;
@@ -55,6 +118,7 @@
 
 /* end of stars animation */
 
+/*
 #one{
     display: flex;
     flex-direction: row;
@@ -66,8 +130,9 @@
     background-color: #afdcee;
     z-index: 1;
 }
+*/
 
-
+/*
 
 #slider{
     display: flex;
@@ -78,7 +143,7 @@
     height: 95%;
 
 }
-
+*/
 
 #slider svg{
     font-size: 3.5rem;
@@ -103,13 +168,14 @@
     
 }
 
-
+/*
 .picture svg{
     margin-top: -3rem;
     height: 100%;
     width: 600px;
     padding: 0;
 }
+*/
 
 
 #info-container h2{
