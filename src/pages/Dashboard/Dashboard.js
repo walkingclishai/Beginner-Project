@@ -28,6 +28,12 @@ function Dashboard() {
       quote:
         "The creatures outside looked from pig to man, and from man to pig, and from pig to man again; but already it was impossible to say which was which.",
     },
+    {
+      title: "The Great Gatsby",
+      cover: "/The great gatsby.jpg",
+      quote:
+        "I hope she’ll be a fool—that’s the best thing a girl can be in this world, a beautiful little fool.",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
