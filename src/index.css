@@ -143,9 +143,9 @@
 
   #phone-bar li{
     list-style: none;
-    opacity: 0; /* Added */
-  transform: translateY(-10px); /* Added */
-  transition: opacity 0.4s ease, transform 0.4s ease; /* Added */
+    opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
   #phone-search{
