@@ -83,15 +83,15 @@ function Dashboard() {
 
       <section id="first-section">
         <svg
-          className="page-svg one"
+          classname="page-svg one"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 300"
+          viewBox="0 224 1440 96"
         >
           <path
             fill="#afdcee"
-            fillOpacity="1"
+            fillopacity="1"
             d="M0,256L48,261.3C96,267,192,277,288,266.7C384,256,480,224,576,224C672,224,768,256,864,256C960,256,1056,224,1152,224C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
+          ></path>{" "}
         </svg>
         <div id="inner-container">
           <img src={"icon one.png"} height="auto" width="22%" />
@@ -171,7 +171,7 @@ function Dashboard() {
                         >
                           <image
                             href={item.cover}
-                            x="-400"
+                            x="-150"
                             y="200"
                             width="100%"
                             height="100%"

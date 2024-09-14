@@ -11,9 +11,6 @@ width: 100%;
 
 }
 
-.one{
-    margin-top: -12.5rem;
-}
 
 .two{
     margin-top: -12rem;
@@ -118,19 +115,7 @@ width: 100%;
 
 /* end of stars animation */
 
-/*
-#one{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    height: 500px;
-    width: 100%;
-    background-color: #afdcee;
-    z-index: 1;
-}
-*/
+
 
 #second-section{
 
@@ -138,6 +123,7 @@ width: 100%;
     padding: 4rem;
     display: flex;
     justify-content: center;
+    
 }
 
 #slider{

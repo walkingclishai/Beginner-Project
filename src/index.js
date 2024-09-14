@@ -5,12 +5,14 @@ import Navbar from "./components/Navbar";
 import reportWebVitals from "./reportWebVitals";
 import Phonebar from "./components/Phone-Navbar";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Footer from "./components/footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {window.innerWidth < 600 ? <Phonebar /> : <Navbar />}
     <Dashboard />
+    <Footer />
   </React.StrictMode>
 );
 
