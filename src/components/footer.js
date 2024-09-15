@@ -6,7 +6,6 @@ function Footer() {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 224 1440 96"
       >
-        {" "}
         <path
           fill="#afdcee"
           fillopacity="1"

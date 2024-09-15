@@ -6,12 +6,13 @@ import reportWebVitals from "./reportWebVitals";
 import Phonebar from "./components/Phone-Navbar";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Footer from "./components/footer";
+import SignIn from "./pages/Sign in/Sign in";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {window.innerWidth < 600 ? <Phonebar /> : <Navbar />}
-    <Dashboard />
+    <SignIn />
     <Footer />
   </React.StrictMode>
 );
