@@ -297,3 +297,35 @@
       margin: 100px 0 0 0;
     }
 }
+
+@media only screen and (min-width: 1600px) {
+    
+  #footer svg{
+    margin: -4.5rem 0 0 0;
+    width: 100%;
+  
+  }
+
+  #footer-section{
+    border: 1px solid red;
+    height: 200px;
+    width: 100%;
+    margin-top: -10px;
+    gap: 14rem;
+    font-size: 23px;
+    
+  }
+
+  #contact-links i {
+    font-size: 3.2rem;
+    
+    text-shadow: 2px 1px 12px #3098c5;
+    
+  }
+
+  #contact-details i{
+    padding-right: 8px;
+    text-shadow: 1px 3px black;
+    font-size: 26px;
+  }
+}
