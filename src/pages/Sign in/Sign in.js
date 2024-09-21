@@ -1,9 +1,17 @@
 import "./Sign in.css";
+import { useState } from "react";
 
 function SignIn() {
+  const [invisible, setInvisible] = useState(true);
+
+  const handleSwitch = () => {
+    setInvisible(!invisible);
+  };
+
   return (
     <div id="signin">
       <svg
+        className="wave"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         width="471"
@@ -46,28 +54,53 @@ function SignIn() {
             <i className="login__icon fas fa-user"></i>
             <input
               type="text"
-              id="username"
-              name="username"
-              placeholder="Username"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
             />
           </div>
 
           <div className="input-container">
             <i className="login__icon fas fa-lock"></i>
             <input
-              type="password"
+              type={invisible ? "password" : "text"}
               id="password"
               name="password"
               placeholder="Password"
             />
+            {invisible ? (
+              <svg
+                onClick={handleSwitch}
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 -5 24 24"
+              >
+                <path
+                  fill="#545454"
+                  d="M2 5.27L3.28 4L20 20.72L18.73 22l-3.08-3.08c-1.15.38-2.37.58-3.65.58c-5 0-9.27-3.11-11-7.5c.69-1.76 1.79-3.31 3.19-4.54zM12 9a3 3 0 0 1 3 3a3 3 0 0 1-.17 1L11 9.17A3 3 0 0 1 12 9m0-4.5c5 0 9.27 3.11 11 7.5a11.8 11.8 0 0 1-4 5.19l-1.42-1.43A9.86 9.86 0 0 0 20.82 12A9.82 9.82 0 0 0 12 6.5c-1.09 0-2.16.18-3.16.5L7.3 5.47c1.44-.62 3.03-.97 4.7-.97M3.18 12A9.82 9.82 0 0 0 12 17.5c.69 0 1.37-.07 2-.21L11.72 15A3.064 3.064 0 0 1 9 12.28L5.6 8.87c-.99.85-1.82 1.91-2.42 3.13"
+                />
+              </svg>
+            ) : (
+              <svg
+                onClick={handleSwitch}
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 -50 256 256"
+              >
+                <path
+                  fill="#545454"
+                  d="M245.48 125.57c-.34-.78-8.66-19.23-27.24-37.81C201 70.54 171.38 50 128 50S55 70.54 37.76 87.76c-18.58 18.58-26.9 37-27.24 37.81a6 6 0 0 0 0 4.88c.34.77 8.66 19.22 27.24 37.8C55 185.47 84.62 206 128 206s73-20.53 90.24-37.75c18.58-18.58 26.9-37 27.24-37.8a6 6 0 0 0 0-4.88M128 194c-31.38 0-58.78-11.42-81.45-33.93A134.8 134.8 0 0 1 22.69 128a134.6 134.6 0 0 1 23.86-32.06C69.22 73.42 96.62 62 128 62s58.78 11.42 81.45 33.94A134.6 134.6 0 0 1 233.31 128C226.94 140.21 195 194 128 194m0-112a46 46 0 1 0 46 46a46.06 46.06 0 0 0-46-46m0 80a34 34 0 1 1 34-34a34 34 0 0 1-34 34"
+                />
+              </svg>
+            )}
           </div>
           <a href="" target="_blank">
             Forgot Password?
           </a>
-          <div id="login">
-            <button>Log in</button>
-            <p>Sign up</p>
-          </div>
+
+          <button className="login">Log in</button>
         </form>
       </div>
     </div>

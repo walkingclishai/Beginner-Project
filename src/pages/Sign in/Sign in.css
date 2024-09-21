@@ -8,7 +8,7 @@
     gap: 16rem;
 }
 
-#signin svg{
+#signin .wave{
 margin: -5px 0 -58px 0;
     
 }
@@ -45,6 +45,7 @@ margin: -5px 0 -58px 0;
 }
 
 .input-container{
+    width: 50%;
     display: flex;
     flex-direction: row;
     gap: 4px;
@@ -53,9 +54,16 @@ margin: -5px 0 -58px 0;
     font-size: 20px;
     padding: 10px;
 }
+
+
+
  .input-container input{
     border: none;
+    width: 70%;
  }
+
+ 
+
  .input-container i{
     color: #3098c5;
  }
@@ -74,16 +82,13 @@ margin: -5px 0 -58px 0;
     text-decoration: none;
 }
 
-#login{
-    width: 54%;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1rem;
-}
 
-#login button{
-    height: 40px;
+
+.login{
+    height: 100%;
+    width: 30%;
     border: none;
+    padding: 5px 0;
     color: #fff;
     font-weight: bold;
     font-size: 15px;

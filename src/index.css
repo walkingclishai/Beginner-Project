@@ -307,7 +307,6 @@
   }
 
   #footer-section{
-    border: 1px solid red;
     height: 200px;
     width: 100%;
     margin-top: -10px;
@@ -326,6 +325,6 @@
   #contact-details i{
     padding-right: 8px;
     text-shadow: 1px 3px black;
-    font-size: 26px;
+    font-size: 22px;
   }
 }
