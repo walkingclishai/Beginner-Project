@@ -84,7 +84,7 @@ margin: -5px 0 -58px 0;
 
 
 
-.login{
+#login{
     height: 100%;
     width: 30%;
     border: none;
@@ -93,7 +93,23 @@ margin: -5px 0 -58px 0;
     font-weight: bold;
     font-size: 15px;
     border-radius: 15px;
+}
+
+.active{
     background-color: #3098c5;
+    cursor: pointer;
+}
+
+.inactive{
+    background-color: grey;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#error{
+    color: red;
+    margin-top: -1rem;
+    font-size: 14px;
 }
 
 

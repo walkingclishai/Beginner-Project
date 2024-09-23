@@ -3,9 +3,17 @@ import { useState } from "react";
 
 function SignIn() {
   const [invisible, setInvisible] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSwitch = () => {
     setInvisible(!invisible);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setError("Still no database bc im lazy");
   };
 
   return (
@@ -57,6 +65,8 @@ function SignIn() {
               id="email"
               name="email"
               placeholder="Enter your email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </div>
 
@@ -67,6 +77,8 @@ function SignIn() {
               id="password"
               name="password"
               placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
             {invisible ? (
               <svg
@@ -96,11 +108,19 @@ function SignIn() {
               </svg>
             )}
           </div>
+          {error && <div id="error">{error}</div>}
           <a href="" target="_blank">
             Forgot Password?
           </a>
 
-          <button className="login">Log in</button>
+          <button
+            id="login"
+            disabled={!email || !password}
+            className={email && password ? "active" : "inactive"}
+            onClick={handleLogin}
+          >
+            Log in
+          </button>
         </form>
       </div>
     </div>
