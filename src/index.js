@@ -7,12 +7,13 @@ import Phonebar from "./components/Phone-Navbar";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Footer from "./components/footer";
 import SignIn from "./pages/Sign in/Sign in";
+import Courses from "./pages/Courses/Courses";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {window.innerWidth < 600 ? <Phonebar /> : <Navbar />}
-    <SignIn />
+    <Courses />
     <Footer />
   </React.StrictMode>
 );

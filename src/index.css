@@ -236,7 +236,6 @@
   width: 100%;
 
 }
-/* change this to grid and remove the parent div, its smarter */
 
 #contact-details{
   list-style: none;
@@ -284,7 +283,46 @@
 }
 
 
+/* Class Card CSS */
 
+.class-card {
+  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+.card-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.grade {
+  background-color: #afdcee;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h4 {
+  font-size: 1rem;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
 
 
 
