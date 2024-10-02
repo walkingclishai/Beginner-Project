@@ -8,13 +8,20 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Footer from "./components/footer";
 import SignIn from "./pages/Sign in/Sign in";
 import Courses from "./pages/Courses/Courses";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {window.innerWidth < 600 ? <Phonebar /> : <Navbar />}
-    <Courses />
-    <Footer />
+    <Router>
+      {window.innerWidth < 600 ? <Phonebar /> : <Navbar />}
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/signin" element={<SignIn />} />
+      </Routes>
+      <Footer />
+    </Router>
   </React.StrictMode>
 );
 
