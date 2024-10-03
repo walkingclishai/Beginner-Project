@@ -325,7 +325,21 @@
 }
 
 
+/* Book Card CSS */
 
+#book-container{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+#book-content{
+  display: flex;
+  flex-direction: column;
+}
 
   
 /* Media Query */
