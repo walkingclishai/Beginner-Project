@@ -285,6 +285,10 @@
 
 /* Class Card CSS */
 
+#test-two{
+  text-decoration: none;
+}
+
 .class-card {
   width: 300px;
   border-radius: 8px;

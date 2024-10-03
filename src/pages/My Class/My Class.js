@@ -1,5 +1,6 @@
 import "./My Class.css";
 import BookCard from "../../components/bookCard";
+import { useParams } from "react-router-dom";
 
 function Myclass() {
   const tenthGrade = [
@@ -20,9 +21,11 @@ function Myclass() {
     },
   ];
 
+  const { name } = useParams();
+
   return (
     <div id="mycourse">
-      <h1>Class: {}</h1>
+      <h1>Class: {name}</h1>
       <ul>
         <li>Upcoming</li>
         <li>Completed</li>
