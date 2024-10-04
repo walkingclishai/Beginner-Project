@@ -25,7 +25,7 @@ function Myclass() {
 
   return (
     <div id="mycourse">
-      <h1>Class: {name}</h1>
+      <h1>My Class: {name}</h1>
       <ul>
         <li>Upcoming</li>
         <li>Completed</li>

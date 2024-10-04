@@ -332,13 +332,27 @@
 /* Book Card CSS */
 
 #book-container{
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  justify-content: space-between;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+  padding: 1rem;
+ 
 }
+
+#book-container img{
+  border-radius: 10px;
+  }
+
+  #book-container button{
+    height: 40px;
+    background: #fff;
+    border:1px solid rgba(172, 167, 167, 0.671);
+    border-radius: 10px;
+    align-self: flex-end;
+  }
 
 #book-content{
   display: flex;
