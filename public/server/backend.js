@@ -1,9 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 const port = 5000;
-
+app.use(cors());
 // Connect to MongoDB
 mongoose
   .connect("mongodb://localhost:27017/UntitledDB", {
@@ -17,7 +18,8 @@ mongoose
     console.error("MongoDB connection error:", err);
   });
 
-// Basic route
+// Users
+
 const userSchema = new mongoose.Schema({
   email: String,
   password: String,
@@ -26,12 +28,32 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("users", userSchema);
 
-// GET request to retrieve all users
 app.get("/", async (req, res) => {
   try {
     const users = await User.find();
     console.log();
     res.send(users);
+  } catch (error) {
+    console.error("Error retrieving users:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Courses
+
+const CoursesSchema = new mongoose.Schema({
+  grade: Number,
+  name: String,
+  cover: String,
+});
+
+const course = mongoose.model("course", CoursesSchema, "Courses");
+
+app.get("/courses", async (req, res) => {
+  try {
+    const courses = await course.find().select("grade name cover -_id");
+    console.log();
+    res.send(courses);
   } catch (error) {
     console.error("Error retrieving users:", error);
     res.status(500).send("Internal Server Error");
