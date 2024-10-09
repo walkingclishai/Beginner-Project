@@ -23,10 +23,12 @@ function Courses() {
   return (
     <div id="courses-container">
       <h1>Courses</h1>
-      {courses.map((item) => (
-        <ClassCard grade={item.grade} cover={item.cover} name={item.name} />
-      ))}
-      <div id="classes-list"></div>
+
+      <div id="classes-list">
+        {courses.map((item) => (
+          <ClassCard grade={item.grade} cover={item.cover} name={item.name} />
+        ))}
+      </div>
     </div>
   );
 }
