@@ -1,1 +1,1 @@
-![Alt text](<./public/dashboard(kinda).jpg>)
+![Alt text](<./public/Dashboard (kinda).jpg>)
