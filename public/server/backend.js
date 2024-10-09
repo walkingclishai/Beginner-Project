@@ -63,6 +63,30 @@ app.get("/courses", async (req, res) => {
   }
 });
 
+// Books
+
+const booksSchema = new mongoose.Schema({
+  tile: String,
+  author: String,
+  cover: String,
+  grade: Number,
+});
+
+const books = mongoose.model("books", booksSchema);
+
+app.get("/books", async (req, res) => {
+  try {
+    const { gradeNumber } = req.query;
+
+    const bookDetails = await books.find({ grade: gradeNumber }).select("-_id");
+    console.log();
+    res.send(bookDetails);
+  } catch (error) {
+    console.error("Error retrieving users:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

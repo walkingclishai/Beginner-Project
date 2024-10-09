@@ -1,28 +1,31 @@
 import "./My Class.css";
 import BookCard from "../../components/bookCard";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function Myclass() {
-  const tenthGrade = [
-    {
-      image: "/Le petit Prince.jpg",
-      title: "The Little Prince",
-      author: "Antoine de Saint-Exupéry",
-    },
-    {
-      image: "/TGG.jpg",
-      title: "The Great Gatsby",
-      author: "F. Scott Fitzgerald",
-    },
-    {
-      image: "/The catcher in the rye.png",
-      title: "The Catcher in the Rye",
-      author: "J.D. Salinger",
-    },
-  ];
+  const [books, setBooks] = useState([]);
 
   const { name } = useParams();
   const { grade } = useParams();
+
+  const fetchBooks = async () => {
+    try {
+      console.log(grade);
+      const response = await axios.get(
+        `http://localhost:5000/books?gradeNumber=${grade}`
+      );
+      setBooks(response.data);
+    } catch (err) {
+      console.error("Error fetching courses:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   return (
     <div id="mycourse">
@@ -35,9 +38,9 @@ function Myclass() {
         <li>Completed</li>
       </ul>
       <div id="ten">
-        {tenthGrade.map((item) => (
+        {books.map((item) => (
           <BookCard
-            image={item.image}
+            image={item.cover}
             title={item.title}
             author={item.author}
           />
