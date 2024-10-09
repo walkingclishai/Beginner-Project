@@ -10,7 +10,6 @@ function Courses() {
     try {
       const response = await axios.get("http://localhost:5000/courses");
       setCourses(response.data);
-      console.log(response);
     } catch (err) {
       console.error("Error fetching courses:", err);
     }

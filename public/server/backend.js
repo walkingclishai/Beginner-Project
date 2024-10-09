@@ -51,7 +51,10 @@ const course = mongoose.model("course", CoursesSchema, "Courses");
 
 app.get("/courses", async (req, res) => {
   try {
-    const courses = await course.find().select("grade name cover -_id");
+    const courses = await course
+      .find()
+      .select("grade name cover -_id")
+      .sort({ grade: 1, name: 1 });
     console.log();
     res.send(courses);
   } catch (error) {
