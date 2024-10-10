@@ -1,5 +1,6 @@
 import "./Sign in.css";
 import { useState } from "react";
+import axios from "axios";
 
 function SignIn() {
   const [invisible, setInvisible] = useState(true);
@@ -11,9 +12,13 @@ function SignIn() {
     setInvisible(!invisible);
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    setError("Still no database bc im lazy");
+    const res = await axios.post("http://localhost:5000/signin", {
+      email,
+      password,
+    });
+    setError(res.data);
   };
 
   return (

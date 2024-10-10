@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
+app.use(express.json());
 const port = 5000;
 app.use(cors());
 // Connect to MongoDB
@@ -31,7 +32,7 @@ const User = mongoose.model("users", userSchema);
 app.get("/", async (req, res) => {
   try {
     const users = await User.find();
-    console.log();
+
     res.send(users);
   } catch (error) {
     console.error("Error retrieving users:", error);
@@ -39,6 +40,28 @@ app.get("/", async (req, res) => {
   }
 });
 
+// log in
+
+app.post("/signin", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const thisUser = await User.findOne({ email });
+
+    if (!thisUser) {
+      return res.send("This email doesn't exist");
+    }
+
+    if (thisUser.password == password) {
+      res.send("Log in Successfully");
+    } else {
+      res.send("Incorrect password");
+    }
+  } catch (err) {
+    console.error(err);
+    res.send("Server error");
+  }
+});
 // Courses
 
 const CoursesSchema = new mongoose.Schema({
