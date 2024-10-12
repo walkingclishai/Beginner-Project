@@ -1,12 +1,16 @@
 import "./Sign in.css";
 import { useState } from "react";
 import axios from "axios";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const [invisible, setInvisible] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [cookie, setCookie] = useCookies(["email"]);
+  const navigate = useNavigate();
 
   const handleSwitch = () => {
     setInvisible(!invisible);
@@ -18,6 +22,10 @@ function SignIn() {
       email,
       password,
     });
+    if (res.data == "Log in Successfully") {
+      setCookie("email", email, { path: "/" });
+      navigate("/");
+    }
     setError(res.data);
   };
 
