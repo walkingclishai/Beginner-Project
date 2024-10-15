@@ -25,6 +25,7 @@ function SignIn() {
     if (res.data == "Log in Successfully") {
       setCookie("email", email, { path: "/" });
       navigate("/");
+      window.location.reload();
     }
     setError(res.data);
   };

@@ -1,22 +1,39 @@
+import { useState } from "react";
+import { Cookies } from "react-cookie";
+import axios from "axios";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 function Navbar() {
-  const units = [
-    {
-      name: "Unit 1",
-      link: "/unit1",
-    },
-    {
-      name: "Unit 2",
-      link: "/unit2",
-    },
-    {
-      name: "Unit 3",
-      link: "/unit3",
-    },
-    {
-      name: "Unit 4",
-      link: "/unit4",
-    },
-  ];
+  const cookies = new Cookies();
+  const [email, setEmail] = useState("");
+  const [fullname, setFullName] = useState("");
+  const navigate = useNavigate();
+
+  const fetchUser = async () => {
+    const cookieEmail = cookies.get("email");
+
+    try {
+      const response = await axios.post("http://localhost:5000/userbyemail", {
+        email: cookieEmail,
+      });
+      console.log(response.data);
+      setEmail(response.data.email);
+      setFullName(response.data.fullname);
+    } catch (err) {
+      console.error("Error fetching courses:", err);
+    }
+  };
+
+  const signOut = () => {
+    cookies.remove("email");
+    navigate("/");
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
   return (
     <nav id="nav-bar">
@@ -99,13 +116,7 @@ function Navbar() {
             Course
           </a>
           {/* start of the dropdown menu */}
-          <ul id="dropdown-units">
-            {units.map((item) => (
-              <li>
-                <a href={item.link}>{item.name}</a>
-              </li>
-            ))}
-          </ul>
+          <ul id="dropdown-units"></ul>
         </li>
 
         <li>
@@ -120,9 +131,15 @@ function Navbar() {
               d="M1728 1152q26 0 45 19t19 45t-19 45t-45 19t-45-19t-19-45t19-45t45-19m-603-19q-79-54-170-81t-187-28q-88 0-170 23t-153 64t-129 100t-100 130t-65 153t-23 170H0q0-117 35-229t101-207t157-169t203-113q-56-36-100-83t-76-103t-47-118t-17-130q0-106 40-199t109-163T568 40T768 0t199 40t163 109t110 163t40 200q0 67-16 129t-48 119t-75 103t-101 83q81 29 156 80zM384 512q0 80 30 149t82 122t122 83t150 30q79 0 149-30t122-82t83-122t30-150q0-79-30-149t-82-122t-123-83t-149-30q-80 0-149 30t-122 82t-83 123t-30 149m1280 384q79 0 149 30t122 82t83 123t30 149q0 80-30 149t-82 122t-123 83t-149 30q-65 0-128-23v151h-128v128h-128v128H896v-282l395-396q-11-46-11-90q0-79 30-149t82-122t122-83t150-30m0 640q53 0 99-20t82-55t55-81t20-100q0-53-20-99t-55-82t-81-55t-100-20q-53 0-99 20t-82 55t-55 81t-20 100q0 35 9 64t21 61l-414 413v102h128v-128h128v-128h128v-91l93-92q40 23 77 39t86 16"
             />
           </svg>
-          <a className="nav-link" href="signin">
-            Sign In
-          </a>
+          {email ? (
+            <a onClick={signOut} className="nav-link">
+              Sign Out
+            </a>
+          ) : (
+            <a className="nav-link" href="signin">
+              Sign In
+            </a>
+          )}
         </li>
         <li id="search">
           <svg

@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 const port = 5000;
 app.use(cors());
+
 // Connect to MongoDB
 mongoose
   .connect("mongodb://localhost:27017/UntitledDB", {
@@ -62,6 +63,22 @@ app.post("/signin", async (req, res) => {
     res.send("Server error");
   }
 });
+
+////
+
+app.post("/userbyemail", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const users = await User.findOne({ email }).select(" email fullname -_id");
+
+    res.send(users);
+  } catch (error) {
+    console.error("Error retrieving users:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 // Courses
 
 const CoursesSchema = new mongoose.Schema({
