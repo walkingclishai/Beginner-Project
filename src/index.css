@@ -45,7 +45,7 @@
 
   
   #nav-bar li:hover:not(#search):not(#dropdown-units li) {
-    background-color: #ffd65a;
+    background-color: #fed668;
     cursor: pointer;
   }
   
@@ -94,8 +94,8 @@
     display: none;
     position: absolute;
     top: 100%;
-    width: 15%;
-    background-color: #ffd65a;
+    width: 16%;
+    background-color: #fed668;
     padding: 0;
     margin-left: -10px;
   }
@@ -125,8 +125,8 @@
   }
 
   .arrow {
-    font-size: 11px;
-    padding-right: 2px;
+    font-size: 12px;
+    padding-left: 3px;
     display: inline-block;
     transition: transform 0.3s ease;
   }
