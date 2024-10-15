@@ -137,14 +137,20 @@ function Navbar() {
                   <path d="M4.271 18.346S6.5 15.5 12 15.5s7.73 2.846 7.73 2.846M12 12a3 3 0 1 0 0-6a3 3 0 0 0 0 6" />
                 </g>
               </svg>
-              <a className="nav-link">{fullname}</a>
+              <a className="nav-link">
+                {fullname}
+                <span className="arrow">&#9660;</span>
+              </a>
               {/* start of the dropdown menu */}
               <ul id="dropdown-units">
                 <li>
-                  <a onClick={signOut}>Sign Out</a>
+                  <a>My grades</a>
                 </li>
                 <li>
-                  <a>Test</a>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <a onClick={signOut}>Sign Out</a>
                 </li>
               </ul>
             </>

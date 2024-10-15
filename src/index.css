@@ -123,6 +123,18 @@
     background-color: #ffeb72;
     color: #afdcee;
   }
+
+  .arrow {
+    font-size: 11px;
+    padding-right: 2px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  
+  #menu:hover .arrow {
+    transform: rotate(180deg);
+  }
   
   
   /* Phone Nav-bar css */
