@@ -18,7 +18,7 @@ function Courses() {
 
   const handleCourses = (students) => {
     const cookieEmail = new Cookies().get("email");
-    return students.includes(cookieEmail) ? true : false;
+    return students.includes(cookieEmail);
   };
 
   useEffect(() => {

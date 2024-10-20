@@ -1,6 +1,6 @@
-function ClassCard({ grade, cover, name }) {
+function ClassCard({ grade, cover, name, permission }) {
   return (
-    <a id="test-two" href={`/myclass/${grade}/${name}`}>
+    <a id="test-two" href={permission ? `/myclass/${grade}/${name}` : "#"}>
       <div className="class-card">
         <div className="card-image">
           <img src={cover} alt="Card" />
