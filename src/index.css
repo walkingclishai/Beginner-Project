@@ -128,12 +128,13 @@
     font-size: 12px;
     padding-left: 3px;
     display: inline-block;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
   }
   
   
   #menu:hover .arrow {
     transform: rotate(180deg);
+    
   }
   
   

@@ -5,19 +5,18 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
-  const cookies = new Cookies();
   const [email, setEmail] = useState("");
   const [fullname, setFullName] = useState("");
   const navigate = useNavigate();
 
   const fetchUser = async () => {
-    const cookieEmail = cookies.get("email");
+    const cookieEmail = new Cookies().get("email");
 
     try {
       const response = await axios.post("http://localhost:5000/userbyemail", {
         email: cookieEmail,
       });
-      console.log(response.data);
+
       setEmail(response.data.email);
       setFullName(response.data.fullname);
     } catch (err) {
@@ -26,7 +25,7 @@ function Navbar() {
   };
 
   const signOut = () => {
-    cookies.remove("email");
+    new Cookies().remove("email");
     navigate("/");
     window.location.reload();
   };

@@ -2,6 +2,7 @@ import "./Courses.css";
 import ClassCard from "../../components/ClassCard";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Cookies } from "react-cookie";
 
 function Courses() {
   const [courses, setCourses] = useState([]);
@@ -15,6 +16,11 @@ function Courses() {
     }
   };
 
+  const handleCourses = (students) => {
+    const cookieEmail = new Cookies().get("email");
+    return students.includes(cookieEmail) ? true : false;
+  };
+
   useEffect(() => {
     fetchCourses();
   }, []);
@@ -25,7 +31,12 @@ function Courses() {
 
       <div id="classes-list">
         {courses.map((item) => (
-          <ClassCard grade={item.grade} cover={item.cover} name={item.name} />
+          <ClassCard
+            grade={item.grade}
+            cover={item.cover}
+            name={item.name}
+            permission={handleCourses(item.users)}
+          />
         ))}
       </div>
     </div>

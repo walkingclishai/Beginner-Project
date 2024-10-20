@@ -64,7 +64,7 @@ app.post("/signin", async (req, res) => {
   }
 });
 
-////
+//// Userbyemail
 
 app.post("/userbyemail", async (req, res) => {
   const { email } = req.body;
@@ -79,12 +79,32 @@ app.post("/userbyemail", async (req, res) => {
   }
 });
 
+/// Userbycourse
+
+app.post("userbycourse", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const currentCourse = await course
+      .findOne({ users: email })
+      .select(" -_id");
+
+    res.send(currentCourse);
+  } catch (error) {
+    console.error("Error retrieving users:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+/////
+
 // Courses
 
 const CoursesSchema = new mongoose.Schema({
   grade: Number,
   name: String,
   cover: String,
+  users: Array,
 });
 
 const course = mongoose.model("course", CoursesSchema, "Courses");
@@ -93,7 +113,7 @@ app.get("/courses", async (req, res) => {
   try {
     const courses = await course
       .find()
-      .select("grade name cover -_id")
+      .select("grade name cover users -_id")
       .sort({ grade: 1, name: 1 });
     console.log();
     res.send(courses);
