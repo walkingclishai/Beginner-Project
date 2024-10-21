@@ -303,13 +303,18 @@
   text-decoration: none;
 }
 
+.disabled{
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .class-card {
   width: 300px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-family: Arial, sans-serif;
-  cursor: pointer;
+ 
 }
 
 .card-image img {
