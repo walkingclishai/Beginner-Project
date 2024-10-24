@@ -147,6 +147,30 @@ app.get("/books", async (req, res) => {
   }
 });
 
+// Quizzes
+
+const quizzesSchema = new mongoose.Schema({
+  book: String,
+  chapters: String,
+  section: Number,
+  id: Number,
+});
+
+const quizzes = mongoose.model("quizzes", quizzesSchema);
+
+app.get("/quizzes", async (req, res) => {
+  try {
+    const { book } = req.query;
+
+    const quizzesSection = await quizzes.find({ book }).select("-_id");
+
+    res.send(quizzesSection);
+  } catch (error) {
+    console.error("Error retrieving quizzes:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
