@@ -171,6 +171,31 @@ app.post("/quizzes", async (req, res) => {
   }
 });
 
+// Quiz Questions
+
+const questionsSchema = new mongoose.Schema({
+  type: String,
+  question: String,
+  choices: Array,
+  idquiz: Number,
+});
+
+const questions = mongoose.model("questions", questionsSchema);
+
+app.post("/questions", async (req, res) => {
+  try {
+    const { id } = req.body;
+
+    const question = await questions.find({ idquiz: id }).select("-_id");
+
+    res.send(question);
+    console.log(question);
+  } catch (error) {
+    console.error("Error retrieving questions:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
