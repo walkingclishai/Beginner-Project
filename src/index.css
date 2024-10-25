@@ -365,13 +365,24 @@
   border-radius: 10px;
   }
 
-  #book-container button{
-    height: 40px;
-    background: #fff;
-    border:2px solid rgba(172, 167, 167, 0.671);
-    border-radius: 10px;
-    align-self: flex-end;
+  
+
+  #quiz-titles{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
     
+    
+  }
+
+  #quiz-titles span{
+    margin: 0;
+    padding: 0;
+    margin-left: -2rem;
+  }
+
+  #quiz-titles a:hover{
+    cursor: pointer;
   }
 
 #book-content{

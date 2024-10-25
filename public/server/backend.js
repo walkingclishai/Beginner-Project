@@ -158,9 +158,9 @@ const quizzesSchema = new mongoose.Schema({
 
 const quizzes = mongoose.model("quizzes", quizzesSchema);
 
-app.get("/quizzes", async (req, res) => {
+app.post("/quizzes", async (req, res) => {
   try {
-    const { book } = req.query;
+    const { book } = req.body;
 
     const quizzesSection = await quizzes.find({ book }).select("-_id");
 

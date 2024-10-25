@@ -9,6 +9,7 @@ import Footer from "./components/footer";
 import SignIn from "./pages/Sign in/Sign in";
 import Courses from "./pages/Courses/Courses";
 import Myclass from "./pages/My Class/My Class";
+import Quizzes from "./pages/Quizzes page/quizzes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -21,6 +22,7 @@ root.render(
         <Route path="/courses" element={<Courses />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/myclass/:grade/:name" element={<Myclass />} />
+        <Route path="/quizzes/:id" element={<Quizzes />} />
       </Routes>
       <Footer />
     </Router>
