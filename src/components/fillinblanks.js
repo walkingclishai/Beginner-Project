@@ -3,8 +3,6 @@ import { useState } from "react";
 const FillInTheBlank = ({ question, options }) => {
   const [input, setInput] = useState("");
 
-  handleBlanks = () => {};
-
   return (
     <div>
       <h3>{question}</h3>

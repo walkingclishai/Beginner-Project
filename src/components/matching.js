@@ -1,13 +1,19 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 const Matching = ({ choices }) => {
   const [answers, setAnswers] = useState([""]);
   const [questions, setQuestions] = useState([""]);
-
+  /*
   const handleChoices = () => {
     setAnswers(choices.slice(choices.length / 2));
     setQuestions(choices.slice(0, choices.length / 2 - 1));
   };
+  */
+
+  useEffect(() => {
+    handleChoices();
+  }, []);
 
   return (
     <div>
