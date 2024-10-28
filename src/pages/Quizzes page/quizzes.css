@@ -1,0 +1,30 @@
+body{
+    background-color: aliceblue;
+}
+
+#title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+}
+
+#quiz-container{
+display:flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+border-radius: 12px;
+height: auto;
+width: 80%;
+margin: auto;
+background-color: #fff;
+}
+
+#mc-container, #tf-container, #sa-container, #fillblanks, #essay, #matching{
+background-color: aliceblue;
+border-radius: 15px;
+width: 70%;
+margin: 8px;
+}
+

@@ -1,10 +1,11 @@
 import { useState } from "react";
+import "../pages/Quizzes page/quizzes.css";
 
 const FillInTheBlank = ({ question, options }) => {
   const [input, setInput] = useState("");
 
   return (
-    <div>
+    <div id="fillblanks">
       <h3>{question}</h3>
       {options.map((item, index) => (
         <>

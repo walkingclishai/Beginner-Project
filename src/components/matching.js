@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import "../pages/Quizzes page/quizzes.css";
 
 const Matching = ({ choices }) => {
   const [answers, setAnswers] = useState([""]);
@@ -11,12 +12,10 @@ const Matching = ({ choices }) => {
   };
   */
 
-  useEffect(() => {
-    handleChoices();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
-    <div>
+    <div id="matching">
       <h3>Matching Activity</h3>
       <div id="choices-container">
         <div id="questions">

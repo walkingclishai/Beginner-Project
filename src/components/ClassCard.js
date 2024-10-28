@@ -17,7 +17,8 @@ function ClassCard({ grade, cover, name, permission }) {
           </h4>
           <p>
             A curated selection of literary works for in-class analysis,
-            accompanied by quizzes to deepen comprehension for {name}.
+            accompanied by quizzes to deepen comprehension for class{grade}
+            {name}.
           </p>
         </div>
       </div>

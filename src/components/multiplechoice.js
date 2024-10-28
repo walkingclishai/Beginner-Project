@@ -1,10 +1,11 @@
 import { useState } from "react";
+import "../pages/Quizzes page/quizzes.css";
 
 const MultipleChoice = ({ question, options }) => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div>
+    <div id="mc-container">
       <h3>{question}</h3>
       {options.map((item, index) => (
         <label key={index}>

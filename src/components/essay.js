@@ -1,10 +1,11 @@
 import { useState } from "react";
+import "../pages/Quizzes page/quizzes.css";
 
 const Essay = ({ question }) => {
   const [input, setInput] = useState("");
 
   return (
-    <div>
+    <div id="essay">
       <h3>{question}</h3>
       <textarea
         value={input}
