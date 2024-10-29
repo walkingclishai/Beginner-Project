@@ -24,7 +24,34 @@ background-color: #fff;
 #mc-container, #tf-container, #sa-container, #fillblanks, #essay, #matching{
 background-color: aliceblue;
 border-radius: 15px;
-width: 70%;
+width: 75%;
 margin: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+#mc-container h3 {
+    margin-bottom: 15px;
+  }
+
+  #mc-container label {
+    display: block;
+    width: 90%;
+    background-color: #fff;
+    color: #3098c5;
+    font-family: Tahoma;
+    font-weight: bold;
+    padding: 10px 0;
+    border-radius: 8px;
+    margin: 10px 0 10px 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  #mc-container label:hover {
+    background-color: #fed668f3;
+    transform: scale(1.05);
+  }
+
+  #mc-container input{
+    margin-right: 10px;
+  }
