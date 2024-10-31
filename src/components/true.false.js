@@ -6,10 +6,10 @@ const TrueFalse = ({ question, options }) => {
 
   return (
     <div id="tf-container">
-      <h3>{question}</h3>
+      <h4>{question}</h4>
       {options.map((item) => (
         <>
-          <h2>{item}</h2>
+          <h3>{item}</h3>
           <label>
             <input
               type="radio"

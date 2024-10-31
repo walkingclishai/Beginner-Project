@@ -5,5 +5,5 @@ This project serves as a practice environment for me to learn how to use **Mongo
 ---
 
 ![Alt text](<./public/Dashboard (kinda).jpg>)
-![Alt text](./public/signin-page.png)
+![Alt text](./public/signin.png)
 ![Alt text](./public/courses.png)
