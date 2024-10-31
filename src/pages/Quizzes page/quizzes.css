@@ -2,6 +2,9 @@
     background-color: aliceblue;
 }*/
 
+h1{
+  margin-right: 10px;
+}
 #title{
     display: flex;
     flex-direction: row;

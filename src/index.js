@@ -22,7 +22,7 @@ root.render(
         <Route path="/courses" element={<Courses />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/myclass/:grade/:name" element={<Myclass />} />
-        <Route path="/quizzes/:id/:title/:section" element={<Quizzes />} />
+        <Route path="/quizzes/:id/:title/:chapters" element={<Quizzes />} />
       </Routes>
       <Footer />
     </Router>

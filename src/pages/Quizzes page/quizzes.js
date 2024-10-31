@@ -15,7 +15,7 @@ function Quizzes() {
 
   const { id } = useParams();
   const { title } = useParams();
-  const { section } = useParams();
+  const { chapters } = useParams();
 
   const fetchQuestions = async () => {
     try {
@@ -48,7 +48,7 @@ function Quizzes() {
           />
         </svg>
         <h1>{title}: </h1>
-        <h1> Section{section}</h1>
+        <h1> chapters: {chapters}</h1>
       </div>
       <div id="quiz-container">
         {questions.map((item) => (
