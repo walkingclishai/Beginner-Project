@@ -105,9 +105,26 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
   
   
+  /*Matching */
+  #choices-container{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  #questions{
+    display: flex;
+    flex-direction: column;
+  }
   
+  #answers{
+    display: flex;
+    flex-direction: column;
+  }
   
-  
-  
+  .draggable{
+    border: 2px solid red;
+  }
 
   
