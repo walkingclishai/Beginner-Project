@@ -110,24 +110,40 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 8.5rem;
   }
 
   #questions{
     display: flex;
     flex-direction: column;
+    gap: 10px;
   }
   
   #answers{
     display: flex;
     flex-direction: column;
+    gap: 24px;
+  }
+
+  #test5{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
   }
   
   .draggable{
-    border: 2px solid red;
+    border: 3px solid #fed668f3;
+    padding: 6px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #fff;
   }
 
 .droppable{
-  height: 200px;
-  width: 200px;
+  display: block;
+  height: 20px;
+  width: 120px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #000;
 }

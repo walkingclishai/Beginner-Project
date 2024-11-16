@@ -12,6 +12,7 @@ const DraggableItem = ({ item }) => {
     item: { item },
     collect: (monitor) => ({ isdragging: !!monitor.isDragging() }),
   }));
+
   return (
     <span className="draggable" ref={drag}>
       {item}
@@ -20,21 +21,17 @@ const DraggableItem = ({ item }) => {
 };
 
 const Droppablearea = () => {
+  const [text, setText] = useState("");
+
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "answer",
-    drop: (item) => console.log(item),
+    drop: (item) => setText(item.item),
     collect: (monitor) => ({ isOver: !!monitor.isOver() }),
   }));
   return (
-    <span
-      className="droppable"
-      ref={drop}
-      style={{
-        backgroundColor: isOver ? "blue" : "gray",
-      }}
-    >
-      {isOver ? "Release to drop" : "Drag item here"}
-    </span>
+    <div className="droppable" ref={drop}>
+      {text}
+    </div>
   );
 };
 
@@ -63,7 +60,7 @@ const Matching = ({ options }) => {
           </div>
           <div id="answers">
             {answers.map((item) => (
-              <span>
+              <span id="test5">
                 {item}
                 <Droppablearea />
               </span>
