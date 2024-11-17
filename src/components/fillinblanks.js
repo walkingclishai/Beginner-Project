@@ -4,6 +4,8 @@ import "../pages/Quizzes page/quizzes.css";
 const FillInTheBlank = ({ question, options }) => {
   const [input, setInput] = useState([]);
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const handleBlanks = (phrase) => {
     return phrase.split("_______");
   };
@@ -19,11 +21,12 @@ const FillInTheBlank = ({ question, options }) => {
               {index < handleBlanks(item).length - 1 && (
                 <input
                   type="text"
-                  value={input[index]}
+                  value={input[currentIndex]}
                   onChange={(e) => {
                     setInput((prevInput) => {
                       const newInput = [...prevInput];
-                      newInput[index] = e.target.value;
+                      newInput[currentIndex] = e.target.value;
+                      setCurrentIndex(currentIndex + 1);
                       return newInput;
                     });
                   }}
