@@ -354,47 +354,9 @@
 }
 
 
-/* Book Card CSS */
 
-#book-container{
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-  padding: 1rem;
- 
-}
 
-#book-container img{
-  border-radius: 10px;
-  }
 
-  
-
-  #quiz-titles{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: flex-end;
-    
-    
-  }
-
-  #quiz-titles span{
-    margin: 0;
-    padding: 0;
-    margin-left: -2rem;
-  }
-
-  #quiz-titles a:hover{
-    cursor: pointer;
-  }
-
-#book-content{
-  display: flex;
-  flex-direction: column;
-}
 
   
 /* Media Query */

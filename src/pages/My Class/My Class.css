@@ -1,3 +1,7 @@
+
+
+
+
 #mycourse{
     width: 80%;
     height: 100%;
@@ -27,4 +31,85 @@ padding: 0 0 0.5rem 11.4rem;
     gap: 25px;
     
     
+    
 }
+
+/* Book Card */
+
+#book-container{
+    width: 60%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+   
+  }
+  
+  #book-container img{
+    align-self: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #5484ac;
+    height: 220px;
+    width: 160px;
+    
+    }
+  
+    #quiz-titles{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        gap: 10px;
+        
+    }
+
+    #quiz-titles label{
+    color:#5484ac;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Tahoma;
+    }
+  
+    #quiz-titles a{
+        width: 100px;
+        background-color: #afdcee;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+        border-radius: 30px;
+        padding: 5px 5px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        box-shadow: 0 6px 5px #3098c5;
+        transition: all 0.3s ease;
+    }
+
+    #quiz-titles a:hover{
+        background-color: #ffeb72; 
+        box-shadow: 4px 4px 12px #3098c5;
+    }
+
+    #quiz-titles a:active {
+        transform: translateY(2px); 
+      }
+      
+      #quiz-titles a::before {
+        content: "📖"; 
+        font-size: 1.2rem;
+      }
+
+
+  #book-content{
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+    
+  }
+
+  #book-content h3{
+    margin: 0;
+  }

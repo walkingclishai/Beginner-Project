@@ -33,10 +33,7 @@ function Myclass() {
         My Class: {grade}
         {name}
       </h1>
-      <ul>
-        <li>Upcoming</li>
-        <li>Completed</li>
-      </ul>
+
       <div id="ten">
         {books.map((item) => (
           <BookCard

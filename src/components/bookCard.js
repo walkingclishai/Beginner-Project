@@ -30,12 +30,12 @@ function BookCard({ image, title, author }) {
         <p>By {author}</p>
       </div>
       <div id="quiz-titles">
+        <label>Chapters</label>
         {quiz.map((item) => (
           <>
             <a href={`/quizzes/${item.id}/${title}/${item.chapters}`}>
-              {item.section}
+              {item.chapters}
             </a>
-            <span>Chapters:{item.chapters}</span>
           </>
         ))}
       </div>
