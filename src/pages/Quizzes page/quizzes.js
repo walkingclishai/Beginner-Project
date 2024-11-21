@@ -12,6 +12,7 @@ import Essay from "../../components/essay";
 
 function Quizzes() {
   const [questions, setQuestions] = useState([]);
+  const [data, setData] = useState([]);
 
   const { id } = useParams();
   const { title } = useParams();
@@ -27,6 +28,12 @@ function Quizzes() {
     } catch (err) {
       console.error("Error fetching questions:", err);
     }
+  };
+
+  const storeData = (answer, index) => {
+    const newData = [...data];
+    newData[index] = answer;
+    setData(newData);
   };
 
   useEffect(() => {
@@ -51,26 +58,58 @@ function Quizzes() {
         <h1> chapters: {chapters}</h1>
       </div>
       <div id="quiz-container">
-        {questions.map((item) => (
+        {questions.map((item, index) => (
           <>
             {item.type == "mc" && (
-              <MultipleChoice question={item.question} options={item.choices} />
+              <MultipleChoice
+                question={item.question}
+                options={item.choices}
+                index={index}
+                storeData={storeData}
+              />
             )}
             {item.type == "t-f" && (
-              <TrueFalse question={item.question} options={item.choices} />
+              <TrueFalse
+                question={item.question}
+                options={item.choices}
+                index={index}
+                storeData={storeData}
+              />
             )}
             {item.type == "s-a" && (
-              <ShortAnswer question={item.question} options={item.choices} />
+              <ShortAnswer
+                question={item.question}
+                options={item.choices}
+                index={index}
+                storeData={storeData}
+              />
             )}
             {item.type == "blanks" && (
-              <FillInTheBlank question={item.question} options={item.choices} />
+              <FillInTheBlank
+                question={item.question}
+                options={item.choices}
+                index={index}
+                storeData={storeData}
+              />
             )}
-            {item.type == "matching" && <Matching options={item.choices} />}
+            {item.type == "matching" && (
+              <Matching
+                options={item.choices}
+                index={index}
+                storeData={storeData}
+              />
+            )}
             {item.type == "essay" && (
-              <Essay question={item.question} options={item.choices} />
+              <Essay
+                question={item.question}
+                options={item.choices}
+                index={index}
+                storeData={storeData}
+              />
             )}
           </>
         ))}
+        <button onClick={() => console.log(data)}>Submit</button>
       </div>
     </>
   );

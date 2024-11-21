@@ -80,17 +80,17 @@ padding: 0 0 0.5rem 11.4rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         text-decoration: none;
         border-radius: 30px;
-        padding: 5px 5px;
+        padding: 4px 5px;
         font-size: 1.2rem;
         font-weight: 600;
         text-align: center;
-        box-shadow: 0 6px 5px #3098c5;
+        box-shadow: 0 5px 4px #3098c5;
         transition: all 0.3s ease;
     }
 
     #quiz-titles a:hover{
         background-color: #ffeb72; 
-        box-shadow: 4px 4px 12px #3098c5;
+        box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.3);
     }
 
     #quiz-titles a:active {
