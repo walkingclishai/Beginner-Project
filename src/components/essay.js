@@ -1,8 +1,13 @@
 import { useState } from "react";
 import "../pages/Quizzes page/quizzes.css";
+import { useEffect } from "react";
 
-const Essay = ({ question }) => {
+const Essay = ({ question, index, storeData }) => {
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    storeData(input, index);
+  }, [input]);
 
   return (
     <div id="essay">

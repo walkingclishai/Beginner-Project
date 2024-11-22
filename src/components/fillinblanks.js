@@ -11,6 +11,10 @@ const FillInTheBlank = ({ question, options, index, storeData }) => {
     return phrase.split("_______");
   };
 
+  const imSoDone = (nonsense) => {
+    const anything = [];
+  };
+
   useEffect(() => {
     storeData(input.join(","), index);
   }, [input]);
