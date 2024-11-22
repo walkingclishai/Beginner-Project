@@ -11,23 +11,29 @@ const FillInTheBlank = ({ question, options, index, storeData }) => {
     return phrase.split("_______");
   };
 
+  useEffect(() => {
+    storeData(input.join(","), index);
+  }, [input]);
+
   return (
     <div id="fillblanks">
       <h3>{question}</h3>
-      {options.map((item) => (
+      {options.map((item, i) => (
         <h2>
           {handleBlanks(item).map((part, index) => (
             <>
               {part}
+
               {index < handleBlanks(item).length - 1 && (
                 <input
                   type="text"
-                  value={input[currentIndex]}
+                  value={input[index + options.slice(0, i).flat().length]}
                   onChange={(e) => {
                     setInput((prevInput) => {
                       const newInput = [...prevInput];
-                      newInput[currentIndex] = e.target.value;
-                      setCurrentIndex(currentIndex + 1);
+                      const j = index + options.slice(0, i).flat().length;
+                      newInput[j] = e.target.value;
+                      console.log(j);
                       return newInput;
                     });
                   }}
