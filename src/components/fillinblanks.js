@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "../pages/Quizzes page/quizzes.css";
+import { useEffect } from "react";
 
-const FillInTheBlank = ({ question, options }) => {
+const FillInTheBlank = ({ question, options, index, storeData }) => {
   const [input, setInput] = useState([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
