@@ -1,19 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../pages/Quizzes page/quizzes.css";
-import { useEffect } from "react";
 
 const FillInTheBlank = ({ question, options, index, storeData }) => {
   const [input, setInput] = useState([]);
+  const [data, setData] = useState([]);
+  const [newData, setNewData] = useState([]);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    let blanksData = options.map((phrase) => phrase.split("_______"));
+    setData(blanksData);
 
-  const handleBlanks = (phrase) => {
-    return phrase.split("_______");
-  };
-
-  const imSoDone = (nonsense) => {
-    const anything = [];
-  };
+    blanksData = options.map((phrase) => phrase.split("_______").slice(0, -1));
+    setNewData(blanksData);
+  }, [options]);
 
   useEffect(() => {
     storeData(input.join(","), index);
@@ -23,27 +22,26 @@ const FillInTheBlank = ({ question, options, index, storeData }) => {
     <div id="fillblanks">
       <h3>{question}</h3>
       {options.map((item, i) => (
-        <h2>
-          {handleBlanks(item).map((part, index) => (
-            <>
+        <h2 key={i}>
+          {data[i]?.map((part, index) => (
+            <span key={index}>
               {part}
-
-              {index < handleBlanks(item).length - 1 && (
+              {index < data[i].length - 1 && (
                 <input
                   type="text"
-                  value={input[index + options.slice(0, i).flat().length]}
+                  value={input[index + newData.slice(0, i).flat().length] || ""}
                   onChange={(e) => {
                     setInput((prevInput) => {
                       const newInput = [...prevInput];
-                      const j = index + options.slice(0, i).flat().length;
+                      const j = index + newData.slice(0, i).flat().length;
                       newInput[j] = e.target.value;
-                      console.log(j);
+
                       return newInput;
                     });
                   }}
                 />
               )}
-            </>
+            </span>
           ))}
         </h2>
       ))}
