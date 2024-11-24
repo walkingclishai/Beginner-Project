@@ -12,6 +12,12 @@ h1{
     justify-content:center;
 }
 
+#buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 35rem;
+}
+
 #quiz-container{
 display:flex;
 flex-direction: column;

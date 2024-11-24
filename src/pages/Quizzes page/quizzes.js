@@ -13,6 +13,7 @@ import Essay from "../../components/essay";
 function Quizzes() {
   const [questions, setQuestions] = useState([]);
   const [data, setData] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const { id } = useParams();
   const { title } = useParams();
@@ -36,10 +37,14 @@ function Quizzes() {
     setData(newData);
   };
 
+  const handleNext = () => {
+    setCurrentIndex(currentIndex + 1);
+  };
+
   useEffect(() => {
     fetchQuestions();
   }, []);
-
+  console.log(questions);
   return (
     <>
       <div id="title">
@@ -58,6 +63,34 @@ function Quizzes() {
         <h1> chapters: {chapters}</h1>
       </div>
       <div id="quiz-container">
+        {questions.length > 0 &&
+          questions[0] &&
+          (questions[currentIndex].type == "mc" ? (
+            <MultipleChoice
+              question={questions[currentIndex].question}
+              options={questions[currentIndex].choices}
+              index={currentIndex}
+              storeData={storeData}
+            />
+          ) : questions[currentIndex].type == "t-f" ? (
+            <TrueFalse
+              question={questions[currentIndex].question}
+              options={questions[currentIndex].choices}
+              index={currentIndex}
+              storeData={storeData}
+            />
+          ) : questions[currentIndex].type == "s-a" ? (
+            <ShortAnswer
+              question={questions[currentIndex].question}
+              options={questions[currentIndex].choices}
+              index={currentIndex}
+              storeData={storeData}
+            />
+          ) : (
+            <></>
+          ))}
+
+        {/*
         {questions.map((item, index) => (
           <>
             {item.type == "mc" && (
@@ -68,6 +101,39 @@ function Quizzes() {
                 storeData={storeData}
               />
             )}
+          </>
+            ))} */}
+        <div id="buttons">
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="3em"
+              height="3em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#fed668"
+                d="M10.928 21a2.98 2.98 0 0 1-2.121-.879L1.686 13l7.121-7.121c1.133-1.134 3.109-1.134 4.242 0c.566.564.879 1.317.879 2.119c0 .746-.27 1.451-.764 2.002H18c1.654 0 3 1.346 3 3s-1.346 3-3 3h-4.836c.493.549.764 1.252.764 1.998a2.98 2.98 0 0 1-.879 2.124a2.98 2.98 0 0 1-2.121.878m-6.414-8l5.707 5.707a1.023 1.023 0 0 0 1.414 0c.189-.189.293-.441.293-.708s-.104-.517-.291-.705L8.342 14H18a1.001 1.001 0 0 0 0-2H8.342l3.293-3.293a.996.996 0 0 0 .001-1.413a1.023 1.023 0 0 0-1.415-.001z"
+              ></path>
+            </svg>
+            Previous
+          </button>
+          <button onClick={handleNext}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="3em"
+              height="3em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#fed668"
+                d="M12 21c-.801 0-1.555-.312-2.121-.879S8.999 18.8 9 17.998c0-.746.271-.998.764-1.998H4.928c-1.654 0-3-1.347-3-3s1.346-3 3-3h4.836C9.27 9 9 8.745 9 7.999a2.98 2.98 0 0 1 .88-2.121c1.132-1.132 3.108-1.133 4.241.001L21.242 13l-7.121 7.121A2.98 2.98 0 0 1 12 21m-7.072-9a1.001 1.001 0 0 0 0 2h9.658l-3.293 3.293a1 1 0 0 0-.293.706c0 .269.104.519.293.708a1.023 1.023 0 0 0 1.414 0L18.414 13l-5.707-5.707a1.023 1.023 0 0 0-1.414 0a1 1 0 0 0-.293.706c0 .268.104.519.293.708L14.586 12z"
+              ></path>
+            </svg>
+            Next
+          </button>
+        </div>
+        {/*
             {item.type == "t-f" && (
               <TrueFalse
                 question={item.question}
@@ -108,8 +174,9 @@ function Quizzes() {
               />
             )}
           </>
-        ))}
-        <button onClick={() => console.log(data)}>Submit</button>
+            ))}
+
+        <button onClick={() => console.log(data)}>Submit</button>*/}
       </div>
     </>
   );
