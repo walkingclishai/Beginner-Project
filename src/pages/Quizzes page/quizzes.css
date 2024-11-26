@@ -170,6 +170,6 @@ flex-direction: column;
 #essay textarea{
   align-self: center;
   width: 90%;
-  height: 150px;
+  height: 230px;
   resize: none;
 }
