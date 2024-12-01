@@ -9,11 +9,13 @@ import ShortAnswer from "../../components/shortanswer";
 import FillInTheBlank from "../../components/fillinblanks";
 import Matching from "../../components/matching";
 import Essay from "../../components/essay";
+import { Cookies } from "react-cookie";
 
 function Quizzes() {
   const [questions, setQuestions] = useState([]);
   const [data, setData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const cookieEmail = new Cookies().get("email");
 
   const { id } = useParams();
   const { title } = useParams();
@@ -44,6 +46,23 @@ function Quizzes() {
 
   const handlePrevious = () => {
     setCurrentIndex(currentIndex - 1);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post(`http://localhost:5000/submitted`, {
+        userId: cookieEmail,
+        quizId: id,
+        answers: data,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
@@ -121,19 +140,6 @@ function Quizzes() {
             <></>
           ))}
 
-        {/*
-        {questions.map((item, index) => (
-          <>
-            {item.type == "mc" && (
-              <MultipleChoice
-                question={item.question}
-                options={item.choices}
-                index={index}
-                storeData={storeData}
-              />
-            )}
-          </>
-            ))} */}
         <div id="buttons">
           {currentIndex != 0 && (
             <button onClick={handlePrevious}>
@@ -153,7 +159,7 @@ function Quizzes() {
           )}
 
           {currentIndex === questions.length - 1 ? (
-            <button onClick={() => console.log(data)}>
+            <button onClick={handleSubmit}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="2.5em"

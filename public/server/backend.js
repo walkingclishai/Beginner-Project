@@ -199,3 +199,28 @@ app.post("/questions", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+// Submitted Answers
+
+const submittedSchema = new mongoose.Schema({
+  userId: String,
+  quizId: Number,
+  answers: Array,
+});
+const Submittedanswers = mongoose.model("Submittedanswers", submittedSchema);
+
+app.post("/submitted", async (req, res) => {
+  const { userId, quizId, answers } = req.body;
+
+  if (!userId || !quizId || !answers) {
+    return res.status(400).send("No data");
+  }
+  try {
+    const submitted = new Submittedanswers({ userId, quizId, answers });
+    await submitted.save();
+    res.status(201).send("Submitted Successfully");
+  } catch (error) {
+    console.error("Error submitting answers", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
