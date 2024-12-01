@@ -26,8 +26,8 @@ const DraggableItem = ({ dragItem }) => {
   );
 };
 
-const Droppablearea = ({ handleInput, i }) => {
-  const [text, setText] = useState("");
+const Droppablearea = ({ handleInput, i, info }) => {
+  const [text, setText] = useState(info || "");
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "answer",
@@ -46,10 +46,10 @@ const Droppablearea = ({ handleInput, i }) => {
   );
 };
 
-const Matching = ({ options, index, storeData }) => {
+const Matching = ({ options, index, storeData, savedData }) => {
   const [answers, setAnswers] = useState([""]);
   const [questions, setQuestions] = useState([""]);
-  const [input, setInput] = useState([]);
+  const [input, setInput] = useState(savedData?.split(",") || []);
 
   const handleChoices = () => {
     setAnswers(options.slice(options.length / 2));
@@ -85,7 +85,11 @@ const Matching = ({ options, index, storeData }) => {
             {answers.map((item, i) => (
               <span id="test5" key={i}>
                 {item}
-                <Droppablearea handleInput={handleInput} i={i} />
+                <Droppablearea
+                  handleInput={handleInput}
+                  i={i}
+                  info={input[i]}
+                />
               </span>
             ))}
           </div>

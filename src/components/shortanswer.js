@@ -2,8 +2,8 @@ import { useState } from "react";
 import "../pages/Quizzes page/quizzes.css";
 import { useEffect } from "react";
 
-const ShortAnswer = ({ question, options, index, storeData }) => {
-  const [input, setInput] = useState([""]);
+const ShortAnswer = ({ question, options, index, storeData, savedData }) => {
+  const [input, setInput] = useState(savedData?.split(",") || []);
 
   useEffect(() => {
     storeData(input.join(","), index);

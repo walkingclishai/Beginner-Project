@@ -2,9 +2,11 @@ import { useState } from "react";
 import "../pages/Quizzes page/quizzes.css";
 import { useEffect } from "react";
 
-const TrueFalse = ({ question, options, index, storeData }) => {
+const TrueFalse = ({ question, options, index, storeData, savedData }) => {
   const [selected, setSelected] = useState(null);
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState(savedData?.split(",") || []);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     storeData(answers.join(","), index);
@@ -20,6 +22,7 @@ const TrueFalse = ({ question, options, index, storeData }) => {
             <input
               type="radio"
               name={item}
+              checked={answers[index] == "True"}
               value="True"
               onChange={() => {
                 setSelected(true);
@@ -34,6 +37,7 @@ const TrueFalse = ({ question, options, index, storeData }) => {
             <input
               type="radio"
               name={item}
+              checked={answers[index] == "False"}
               value="False"
               onChange={() => {
                 setSelected(false);

@@ -39,6 +39,7 @@ function Quizzes() {
 
   const handleNext = () => {
     setCurrentIndex(currentIndex + 1);
+    console.log(data);
   };
 
   const handlePrevious = () => {
@@ -48,7 +49,7 @@ function Quizzes() {
   useEffect(() => {
     fetchQuestions();
   }, []);
-  console.log(questions);
+
   return (
     <>
       <div id="title">
@@ -75,6 +76,7 @@ function Quizzes() {
               options={questions[currentIndex].choices}
               index={currentIndex}
               storeData={storeData}
+              savedData={data[currentIndex]}
             />
           ) : questions[currentIndex].type == "t-f" ? (
             <TrueFalse
@@ -82,6 +84,7 @@ function Quizzes() {
               options={questions[currentIndex].choices}
               index={currentIndex}
               storeData={storeData}
+              savedData={data[currentIndex]}
             />
           ) : questions[currentIndex].type == "s-a" ? (
             <ShortAnswer
@@ -89,6 +92,7 @@ function Quizzes() {
               options={questions[currentIndex].choices}
               index={currentIndex}
               storeData={storeData}
+              savedData={data[currentIndex]}
             />
           ) : questions[currentIndex].type == "blanks" ? (
             <FillInTheBlank
@@ -96,12 +100,14 @@ function Quizzes() {
               options={questions[currentIndex].choices}
               index={currentIndex}
               storeData={storeData}
+              savedData={data[currentIndex]}
             />
           ) : questions[currentIndex].type == "matching" ? (
             <Matching
               options={questions[currentIndex].choices}
               index={currentIndex}
               storeData={storeData}
+              savedData={data[currentIndex]}
             />
           ) : questions[currentIndex].type == "essay" ? (
             <Essay
@@ -109,6 +115,7 @@ function Quizzes() {
               options={questions[currentIndex].choices}
               index={currentIndex}
               storeData={storeData}
+              savedData={data[currentIndex]}
             />
           ) : (
             <></>

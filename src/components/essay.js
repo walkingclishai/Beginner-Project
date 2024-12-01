@@ -2,8 +2,8 @@ import { useState } from "react";
 import "../pages/Quizzes page/quizzes.css";
 import { useEffect } from "react";
 
-const Essay = ({ question, index, storeData }) => {
-  const [input, setInput] = useState("");
+const Essay = ({ question, index, storeData, savedData }) => {
+  const [input, setInput] = useState(savedData || "");
 
   useEffect(() => {
     storeData(input, index);
