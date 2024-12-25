@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   fullname: String,
+  Admin: Boolean,
 });
 
 const User = mongoose.model("users", userSchema);
@@ -54,9 +55,9 @@ app.post("/signin", async (req, res) => {
     }
 
     if (thisUser.password == password) {
-      res.send("Log in Successfully");
+      res.send({ message: "Log in Successfully", admin: thisUser.Admin });
     } else {
-      res.send("Incorrect password");
+      res.send({ message: "Incorrect password" });
     }
   } catch (err) {
     console.error(err);

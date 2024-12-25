@@ -11,23 +11,49 @@ import Courses from "./pages/Courses/Courses";
 import Myclass from "./pages/My Class/My Class";
 import Quizzes from "./pages/Quizzes page/quizzes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import AdminDashboard from "./pages/Admin/admin dashboard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <Router>
-      {window.innerWidth < 600 ? <Phonebar /> : <Navbar />}
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/myclass/:grade/:name" element={<Myclass />} />
-        <Route path="/quizzes/:id/:title/:chapters" element={<Quizzes />} />
-      </Routes>
-      <Footer />
-    </Router>
-  </React.StrictMode>
-);
+
+const Routers = () => {
+  const [admin, setAdmin] = useState(() => {
+    const savedAdmin = localStorage.getItem("adminState");
+    return savedAdmin ? JSON.parse(savedAdmin) : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("adminState", admin);
+  }, [admin]);
+
+  return (
+    <React.StrictMode>
+      <Router>
+        {window.innerWidth < 600 ? (
+          <Phonebar setadmin={setAdmin} admin={admin} />
+        ) : (
+          <Navbar setadmin={setAdmin} admin={admin} />
+        )}
+        {admin == true ? (
+          <Routes>
+            <Route path="/" element={<AdminDashboard />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/signin" element={<SignIn admin={setAdmin} />} />
+            <Route path="/myclass/:grade/:name" element={<Myclass />} />
+            <Route path="/quizzes/:id/:title/:chapters" element={<Quizzes />} />
+          </Routes>
+        )}
+        <Footer />
+      </Router>
+    </React.StrictMode>
+  );
+};
+
+root.render(<Routers />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

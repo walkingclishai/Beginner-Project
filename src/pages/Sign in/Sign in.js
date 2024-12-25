@@ -4,7 +4,7 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
-function SignIn() {
+function SignIn({ admin }) {
   const [invisible, setInvisible] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,12 +22,13 @@ function SignIn() {
       email,
       password,
     });
-    if (res.data == "Log in Successfully") {
+    if (res.data.message == "Log in Successfully") {
       setCookie("email", email, { path: "/" });
+      admin(res.data.admin);
       navigate("/");
       window.location.reload();
     }
-    setError(res.data);
+    setError(res.data.message);
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Phonebar() {
+function Phonebar({ admin, setadmin }) {
   const [visible, setVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -33,13 +33,15 @@ function Phonebar() {
       <button onClick={toggleMenu}>{visible ? "X" : "☰"} </button>
       <ul id="phone-menu" className={visible ? "show" : ""}>
         <li>
-          <a href="#">Dashboard</a>
+          <a href="/">Dashboard</a>
         </li>
+        {!admin && (
+          <li>
+            <a href="/courses">Course</a>
+          </li>
+        )}
         <li>
-          <a href="#">Course</a>
-        </li>
-        <li>
-          <a href="#">Sign In</a>
+          <a href="/signin">Sign In</a>
         </li>
       </ul>
     </nav>

@@ -58,7 +58,7 @@ function Quizzes() {
         answers: data,
       })
       .then((res) => {
-        console.log(res);
+        alert(res.data);
       })
       .catch((err) => {
         console.log(err);
