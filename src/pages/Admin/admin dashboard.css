@@ -1,0 +1,48 @@
+#dashboard-course{
+    margin-bottom: 90px;
+    padding-right: 10px;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 5px;
+
+    
+    
+}
+
+#dashboard-container{
+    height: 600px;
+    background-image: url('./background2.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 550px auto;
+    display: flex;
+    justify-content: end;
+    margin-bottom: -30px;
+
+    
+    
+}
+
+#dashboard-course h3{
+
+}
+
+#dashboard-course #class{
+    
+    
+}
+
+#dashboard-course svg{
+    
+    margin-bottom: -20px;
+}
+
+#dropdown-students {
+    display: none;
+    position: absolute;
+    width: 16%;
+    padding: 0;
+    margin-left: -10px;
+  }
