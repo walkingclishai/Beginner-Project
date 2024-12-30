@@ -225,3 +225,17 @@ app.post("/submitted", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+// get submitted answers
+
+app.get("/answers", async (req, res) => {
+  try {
+    const submittedanswers = await Submittedanswers.find().select(
+      " userId, quizId, answers"
+    );
+    res.send(submittedanswers);
+  } catch (error) {
+    console.error("Error retrieving users:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
