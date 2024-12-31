@@ -15,7 +15,7 @@ const FillInTheBlank = ({ question, options, index, storeData, savedData }) => {
   }, [options]);
 
   useEffect(() => {
-    storeData(input.join(","), index);
+    storeData("Fill in the Blanks: " + input.join(", "), index);
   }, [input]);
 
   return (

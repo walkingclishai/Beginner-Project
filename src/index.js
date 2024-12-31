@@ -13,6 +13,7 @@ import Quizzes from "./pages/Quizzes page/quizzes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import AdminDashboard from "./pages/Admin/admin dashboard";
+import Answers from "./pages/Answers/Answers";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -37,6 +38,7 @@ const Routers = () => {
         {admin == true ? (
           <Routes>
             <Route path="/" element={<AdminDashboard />} />
+            <Route path="/answers/:userId/:name" element={<Answers />} />
           </Routes>
         ) : (
           <Routes>

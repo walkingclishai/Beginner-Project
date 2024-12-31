@@ -9,7 +9,8 @@ const TrueFalse = ({ question, options, index, storeData, savedData }) => {
   useEffect(() => {}, []);
 
   useEffect(() => {
-    storeData(answers.join(","), index);
+    const storedAnswer = "True/ False: " + answers.join(", ");
+    storeData(storedAnswer, index);
   }, [selected]);
 
   return (

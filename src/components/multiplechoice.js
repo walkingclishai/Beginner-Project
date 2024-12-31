@@ -10,7 +10,7 @@ const MultipleChoice = ({ question, options, index, storeData, savedData }) => {
   }, []);
 
   useEffect(() => {
-    storeData(selected, index);
+    storeData("Multiple Choice: " + selected, index);
   }, [selected]);
 
   return (

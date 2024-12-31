@@ -6,7 +6,7 @@ const ShortAnswer = ({ question, options, index, storeData, savedData }) => {
   const [input, setInput] = useState(savedData?.split(",") || []);
 
   useEffect(() => {
-    storeData(input.join(","), index);
+    storeData("Short Answers: " + input.join(", "), index);
   }, [input]);
 
   return (

@@ -212,12 +212,13 @@ const Submittedanswers = mongoose.model("Submittedanswers", submittedSchema);
 
 app.post("/submitted", async (req, res) => {
   const { userId, quizId, answers } = req.body;
+  const mark = "Submitted";
 
   if (!userId || !quizId || !answers) {
     return res.status(400).send("No data");
   }
   try {
-    const submitted = new Submittedanswers({ userId, quizId, answers });
+    const submitted = new Submittedanswers({ userId, quizId, answers, mark });
     await submitted.save();
     res.status(201).send("Submitted Successfully");
   } catch (error) {
@@ -228,11 +229,13 @@ app.post("/submitted", async (req, res) => {
 
 // get submitted answers
 
-app.get("/answers", async (req, res) => {
+app.post("/answers", async (req, res) => {
   try {
-    const submittedanswers = await Submittedanswers.find().select(
-      " userId, quizId, answers"
-    );
+    const { userId } = req.body;
+    console.log(userId);
+
+    const submittedanswers = await Submittedanswers.find({ userId });
+    console.log(submittedanswers);
     res.send(submittedanswers);
   } catch (error) {
     console.error("Error retrieving users:", error);

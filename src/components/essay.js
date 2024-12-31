@@ -6,7 +6,7 @@ const Essay = ({ question, index, storeData, savedData }) => {
   const [input, setInput] = useState(savedData || "");
 
   useEffect(() => {
-    storeData(input, index);
+    storeData("Essay: " + input, index);
   }, [input]);
 
   return (

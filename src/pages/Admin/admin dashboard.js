@@ -89,7 +89,11 @@ function AdminDashboard() {
                     !student.Admin &&
                     item.users.includes(student.email) && (
                       <li>
-                        <a href="#">{student.fullname}</a>
+                        <a
+                          href={`/answers/${student.email}/${student.fullname}`}
+                        >
+                          {student.fullname}
+                        </a>
                       </li>
                     )
                 )}

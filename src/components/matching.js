@@ -66,7 +66,7 @@ const Matching = ({ options, index, storeData, savedData }) => {
   }, []);
 
   useEffect(() => {
-    storeData(input.join(","), index);
+    storeData("Matching: " + input.join(", "), index);
   }, [input]);
 
   return (
